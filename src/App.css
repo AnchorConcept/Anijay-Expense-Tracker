@@ -1,38 +1,200 @@
-.App {
-  text-align: center;
+/* App.css */
+
+/* Animated Background */
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(-45deg, #4facfe, #43e97b, #f9f047, #ff6b6b);
+  background-size: 600% 600%;
+  animation: gradientMove 12s ease infinite;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+/* Title */
+h1 {
+  color: white;
+  margin-bottom: 10px;
+  font-size: 2.5rem;
+}
+
+/* Balance */
+h2 {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+/* Summary */
+.summary {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.income,
+.expense {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: bold;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.income {
+  background-color: #43e97b;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
+.expense {
+  background-color: #ff6b6b;
+}
+
+/* Initial Balance Input */
+.initial-input {
+  background: rgba(255, 255, 255, 0.25);
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  max-width: 400px;
+  width: 100%;
+}
+
+.initial-input input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #0d47a1;
+  font-weight: bold;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.initial-input input:focus {
+  background: #fff;
+  border: 2px solid #0d47a1;
+}
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 30px;
+}
+
+form input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+form button {
+  background: #0d47a1;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #1565c0;
+}
+
+/* Transaction List */
+.transaction-list {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  max-width: 400px;
+}
+
+.transaction-list li {
+  background-color: rgba(255,255,255,0.9);
+  margin-bottom: 12px;
+  padding: 15px 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  animation: fadeSlideUp 0.4s ease forwards;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+@keyframes fadeSlideUp {
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+.transaction-list li.plus {
+  border-left: 5px solid #43e97b;
+}
+
+.transaction-list li.minus {
+  border-left: 5px solid #ff6b6b;
+}
+
+.transaction-list span {
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.transaction-list small {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.transaction-list button {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: #c62828;
+  cursor: pointer;
+}
+
+/* Footer */
+footer {
+  margin-top: 40px;
+  color: #fff;
+  font-size: 0.85rem;
 }
