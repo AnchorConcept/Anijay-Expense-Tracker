@@ -17,7 +17,7 @@ A modern, colorful, and mobile-friendly expense tracker built with React. It hel
 
 ## 🌐 Live Demo
 
-🔗 [Live on Netlify](https://anijay-expensetracker.netlify.app/) *(replace this with your actual Netlify link)*
+🔗 [Live on Netlify](https://anijay-expensetracker.netlify.app/)
 
 
 
